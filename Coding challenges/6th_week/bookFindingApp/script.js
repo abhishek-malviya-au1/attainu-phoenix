@@ -79,5 +79,4 @@ button.addEventListener("click", function() {
   }
 });
 
-// Start things by loading the AJAX data.
 loadData();
