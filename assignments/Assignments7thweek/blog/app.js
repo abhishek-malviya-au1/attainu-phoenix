@@ -34,11 +34,11 @@ const Login = require("./routes/login");
 
 app.use("/", Home);
 
+app.use("/login", Login);
+
 app.use("/edit", Edit);
 
 app.use("/signup", Signup);
-
-app.use("/login", Login);
 
 app.use("/Add", Add);
 
