@@ -1,22 +1,31 @@
-function squareOfNumber(num){
-var sqArray=[];
-console.log(sqArray);
-for(var i=0;i<num.length;i++){
-if(num[i]%2==0){
+var numbers = [4, 28, 43, 34, 37, 41, 26, 49, 33, 19, 36, 25, 47, 20, 1, 45, 6, 5, 27, 48];
 
-sqArray.push(num[i]*num[i]);
-}
-console.log(sqArray);
-}
-}
-
-squareOfNumber([11,22,45,32,12,52,68,23,14,61,10]);
-
-function squareByFunctional(num){
-var sqArray=num.filter(function(number){return number%2==0}).map(function(number){return number*number});
-console.log(sqArray);
+var squareOfNumber=function(array){
+   var squareArray=array.filter(function(number)
+    {
+    return number%2==0;
+    }).map(function(evenNumber)
+    {
+    return evenNumber*evenNumber;
+    });
+    console.log(squareArray);
 }
 
+squareOfNumber(numbers);
 
+var square=function(array){
+    var evenNumbers=[];
+    for(let i=0;i<array.length;i++){
+        if(array[i]%2==0){
+            evenNumbers.push(array[i]);
+        }
+    }
+    var squareArray=[];
+    for(let i=0;i<evenNumbers.length;i++){
+        squareArray.push(evenNumbers[i]*evenNumbers[i]);
 
-squareByFunctional([11,22,45,32,12,52,68,23,14,61,10]);
+    }
+    console.log(evenNumbers);
+}
+
+square(numbers);
