@@ -2,7 +2,7 @@ const csv = require('csv-parser');
 const fs = require('fs');
 
 let states=[];
-let sortedStates=[];
+
  
 fs.createReadStream('computers-datafile.csv')
   .pipe(csv())
