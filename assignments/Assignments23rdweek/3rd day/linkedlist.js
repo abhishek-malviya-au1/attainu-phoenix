@@ -56,7 +56,6 @@ class LinkedList{
         let currentNode=this.head;
         while(currentNode){
             if(currentNode.value===value){
-                console.log(currentNode);
                 return currentNode;
             }
             currentNode=currentNode.next;
@@ -72,7 +71,37 @@ class LinkedList{
         }
     }
 
-    delete(){}
+    delete(value){
+        //If the list is empty immediately return as there is nothing to look and delete
+        if(!this.head){
+            return null;
+        }
+        //If the value we want to delete is our head element then simply point the current head to the next value and return
+        if(this.head.value===value){
+            this.head=this.head.next;
+            return;
+        }
+        //For other values start from the second node and go till the end
+        let currentNode=this.head;
+        while(currentNode.next){
+            //If the value to delete is the next value to the current , 
+            //set the current node's next as its next node's next
+            if(currentNode.next.value===value){
+                currentNode.next=currentNode.next.next;
+            }
+            
+            currentNode=currentNode.next;
+
+            break;
+        }
+            //Check if the tail has to be updated
+            //If the value that needs to be deleted is the value at the tail
+            //then we have to update the tail as well
+            if(this.tail.value===value){
+                this.tail=currentNode;
+            }
+        
+    }
 }
 
 let n=new LinkedList();
@@ -81,7 +110,9 @@ n.append('Ravi');
 n.append('Ansal');
 n.append('Vibha');
 
+
 n.prepend('Jaydeep');
+n.delete('Vibha');
 
 n.search('Abhishek');
 n.print();
